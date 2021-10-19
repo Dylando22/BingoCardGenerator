@@ -29,7 +29,7 @@ class UserInterface():
         # TODO: Display a deck menu and allow use to do things with the deck
         pass
 
-    def __getIntegerInput(self, m, n):
+    def __getIntegerInput(self, prompt, m, n):
         """
         Prompt the user for an integer in the range [m, n] INCLUSIVE
         If the provided input is NOT an integer NOR in the range, repeat the prompt
@@ -37,7 +37,7 @@ class UserInterface():
         """
         pass
 
-    def __getStringInput(self):
+    def __getStringInput(self, prompt):
         """
         Prompt the user for a string and return it
         """
@@ -65,7 +65,7 @@ class UserInterface():
 
     def __printCard(self):
         """Command to print a single card"""
-        cardToPrint = self.__getNumberInput("Id of card to print", 1, self.__m_currentDeck.getCardCount())
+        cardToPrint = self.__getIntegerInput("Id of card to print", 1, self.__m_currentDeck.getCardCount())
         if cardToPrint > 0:
             print()
             self.__m_currentDeck.print(idx=cardToPrint)
