@@ -2,9 +2,9 @@
 
 | Date        | Events
 |-------------|--------------------
-| Nocember 20 | Wrote requirements specification and system analysis
-| Nocember 21 | Wrote system design; revised requirements and system analysis
-| Nocember 22 | Prototyped drawing a rectangle with turtle; revised software plan
+| October 20  | Read through README and Instructions
+| October 21  | Made UML design and got review from peers, wrote the users manual 
+| October 22  | Started on the design phase of the plan,
 | Nocember 23 | Initial implementation; main menu and prompts done; turtle draws a few shapes but ultimately "walks" off the screen
 | Nocember 24 | Weekend - no work
 | Nocember 25 | Weekend - no work
