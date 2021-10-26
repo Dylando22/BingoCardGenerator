@@ -3,6 +3,7 @@ import Menu
 
 
 class UserInterface():
+    deck = Deck.Deck(0,0,0)
     def __init__(self):
         pass
 
@@ -16,17 +17,21 @@ class UserInterface():
         while keepGoing:
             command = menu.show()
             if command == "C":
-                pass
+                self.__createDeck()
             elif command == "X":
                 keepGoing = False
 
     def __createDeck(self):
         """Command to create a new Deck"""
         # TODO: Get the user to specify the card size, max number, and number of cards
-
+        size = self.__getIntegerInput("Please Enter the card size",3,16)
+        MaxNum = self.__getIntegerInput("Enter the max number on card",50,100)
+        CardCount = self.__getIntegerInput("Enter number of cards to generate",1,1000)
         # TODO: Create a new deck
-
+        self.deck = Deck.Deck(size,MaxNum,CardCount)
         # TODO: Display a deck menu and allow use to do things with the deck
+        menu = self.__deckMenu()
+
         pass
 
     def __getIntegerInput(self, prompt, m, n):
@@ -35,13 +40,21 @@ class UserInterface():
         If the provided input is NOT an integer NOR in the range, repeat the prompt
         Otherwise, convert the user's value to an integer and return it.
         """
-        pass
+        KeepRunning = True
+        while KeepRunning:
+            x = input(f'{prompt}[{m}-{n}]:\n')
+            if x.isdigit() and int(x) <= n and int(x) >= m:
+                KeepRunning = False
+                return int(x)
+            else:
+                x = input(f'{prompt}[{m}-{n}]:\n')
 
     def __getStringInput(self, prompt):
         """
         Prompt the user for a string and return it
         """
-        pass
+        x = input(f'{prompt}\n')
+        return x
 
     def __deckMenu(self):
         """Present the deck menu to user until a valid selection is chosen"""
@@ -57,7 +70,7 @@ class UserInterface():
                 self.__printCard()
             elif command == "D":
                 print()
-                self.__m_currentDeck.print()
+                self.deck.print()
             elif command == "S":
                 self.__saveDeck()
             elif command == "X":
@@ -65,10 +78,10 @@ class UserInterface():
 
     def __printCard(self):
         """Command to print a single card"""
-        cardToPrint = self.__getIntegerInput("Id of card to print", 1, self.__m_currentDeck.getCardCount())
+        cardToPrint = self.__getIntegerInput("Id of card to print", 1, self.deck.getCardCount())
         if cardToPrint > 0:
             print()
-            self.__m_currentDeck.print(idx=cardToPrint)
+            self.deck.print(idx=cardToPrint)
 
     def __saveDeck(self):
         """Command to save a deck to a file"""
@@ -76,6 +89,6 @@ class UserInterface():
         if fileName != "":
             # TODO: open a file and pass to currentDeck.print()
             outputStream = open(fileName, 'w')
-            self.__m_currentDeck.print(outputStream)
+            self.deck.print(outputStream)
             outputStream.close()
             print("Done!")
