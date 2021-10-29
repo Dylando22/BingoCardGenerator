@@ -1,11 +1,11 @@
 import sys
-
 import Card
 import NumberSet
 
 
 class Deck():
     CardsInDeck = []
+    CardSets = []
     Cardsize = 0
     MaxNum = 0
     CardCount = 0
@@ -14,9 +14,13 @@ class Deck():
         self.Cardsize = cardSize
         self.CardCount = cardCount
         self.MaxNum = numberMax
+        self.CardsInDeck = []
+        set = NumberSet.NumberSet(numberMax)
         i = 0
-        while i <= cardCount:
-            self.CardsInDeck.append(Card.Card(i,cardSize,Card.Card.set))
+        while i < cardCount:
+            set.randomize()
+            self.CardSets.append(set)
+            self.CardsInDeck.append(Card.Card(i,cardSize,set))
             i += 1
 
     def getCardCount(self):
