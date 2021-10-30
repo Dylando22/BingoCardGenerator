@@ -5,7 +5,6 @@ import NumberSet
 
 class Deck():
     CardsInDeck = []
-    CardSets = []
     Cardsize = 0
     MaxNum = 0
     CardCount = 0
@@ -19,7 +18,6 @@ class Deck():
         i = 0
         while i < cardCount:
             set.randomize()
-            self.CardSets.append(set)
             self.CardsInDeck.append(Card.Card(i,cardSize,set))
             i += 1
 

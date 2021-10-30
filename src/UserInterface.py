@@ -34,8 +34,6 @@ class UserInterface():
         # TODO: Display a deck menu and allow use to do things with the deck
         menu = self.__deckMenu()
 
-        pass
-
     def __getIntegerInput(self, prompt, m, n):
         """
         Prompt the user for an integer in the range [m, n] INCLUSIVE

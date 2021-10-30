@@ -151,47 +151,63 @@ pop up again. If there is bad input, for example an int instead of a string, we 
 
 ## Phase 3: Implementation *(15%)*
 
-**Deliver:**
 
-*   (More or less) working Python code.
-*   Note any relevant and interesting events that happened while you wrote the code.
-    *   e.g. things you learned, things that didn't go according to plan
+Worked on python code and lots of debugging. I had the hardest time understaning why my design was not working and the classes were not getting the correct information. I realized I needed to declare certain variables and to use a NumberSet in the deck and then randomize it and assign it to each Card in the deck.
+
+While writing the code I learned how important it was to find the flow of information before writing code. What really helped me was going to the UserInterface class and following each method and variable to see where it went
+
+Another reason I got stuck was trying to implement the NumberSet class with the input of size being the size of the card. when I did this every time I would get a random number, it would end up being the exact same for each card. I ended up making a NumberSet with all the numbers in a random order up to size(which was the Max number input by the user) and then shuffling the set. 
+
 
 
 ## Phase 4: Testing & Debugging *(30%)*
 
-**Deliver:**
 
-*   A set of test cases that you have personally run on your computer.
-    *   Include a description of what happened for each test case.
-    *   For any bugs discovered, describe their cause and remedy.
-*   Write your test cases in plain language such that a non-coder could run them and replicate your experience.
+I personally tested the program personally, trying to do incoreect inputs, and looking at the output from the cards to look for errors. 
+I also rand the following test cases that passed:
+
+1. test_getID -- Assert that card ID number is as expected ... ok
+2. test_getSize -- Assert that card size is as expected ... ok
+3. test_hasFreeSquares -- Ensure that odd-numbered cards have 1 "Free!" square in the center ... ok
+4. test_noDuplicates -- Ensure that cards do not contain duplicate numbers ... ok
+5. test_getCard -- Ensure that Cards can be accessed from within a Deck ... ok
+6. test_getCardCount -- Ensure that Decks contain expected number of cards ... ok
+7. test_addOption -- Ensure that options can be added to a Menu ... ok
+8. test_getHeader -- Ensure that Menu headers are stored and may be retrieved ... ok
+9. test_getOption -- Ensure that menu options can be retrieved from Menus ... ok
+10. test_getOptionCount -- Ensure that a Menu retains the correct number of options ... ok
+11. test_get -- Ensure that a NumberSet's gracefully handles requests for out-of-bounds numbers ... ERROR (This happend becasue I use a counter to make sure it is in the index)
+12. test_getNext -- Ensure that a NumberSet's .getNext() method can be safely called more times than the quantity of nubmers it contains ... ok
+13. test_getSize -- Ensure that a NumberSet's size is as expected ... ok
+14. test_noDuplicates -- Ensure that a NumberSet contains no duplicates ... ok
+
 
 
 ## Phase 5: Deployment *(5%)*
 
-**Deliver:**
 
-*   Your repository pushed to GitLab.
-*   **Verify** that your final commit was received by browsing to its project page on GitLab.
-    *   Review the project to ensure that all required files are present and in correct locations.
-*   **Validate** that your submission is complete and correct by cloning it to a new location on your computer and re-running it.
-    *   Run through your test cases to avoid nasty surprises.
+Pushed everything up to GitLab
 
 
 ## Phase 6: Maintenance
 
-**Deliver:**
 
 *   Write brief and honest answers to these questions: *(Note: do this before you complete **Phase 5: Deployment**)*
-    *   What parts of your program are sloppily written and hard to understand?
-        *   Are there parts of your program which you aren't quite sure how/why they work?
-        *   If a bug is reported in a few months, how long would it take you to find the cause?
-    *   Will your documentation make sense to
-        *   anybody besides yourself?
-        *   yourself in six month's time?
-    *   How easy will it be to add a new feature to this program in a year?
-    *   Will your program continue to work after upgrading
-        *   your computer's hardware?
-        *   the operating system?
-        *   to the next version of Python?
+    * What parts of your program are sloppily written and hard to understand?
+    - The getting random numbers is very sloppy, and also I have commented out code to get the test cases to run proplerly, and I didn't want to get rid of all my hard work, so I left it.
+        * Are there parts of your program which you aren't quite sure how/why they work?
+      - Not really, in order to get it running proplery from the errors and bugs I was having, I had to take a step back and really understand all aspects. 
+        * If a bug is reported in a few months, how long would it take you to find the cause?
+        - depends on the bug, but it would probably consist of changing how things are printed to the screen, so not very long.
+    * Will your documentation make sense to
+        * anybody besides yourself?
+      - Probalby not if they do not understand the program and all the classes. But the user will be able to use it easily 
+        * yourself in six month's time?
+        -I think I will be able to understand it
+    * How easy will it be to add a new feature to this program in a year?
+    - The program seems pretty obsolete, but if random functions are added, you can improve that aspect.
+    * Will your program continue to work after upgrading
+        * your computer's hardware?
+        * the operating system?
+        * to the next version of Python?
+      - Yes, yes and yes 
